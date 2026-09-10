@@ -3,68 +3,400 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phạm Gia Triết | Portfolio</title>
+  <title>Hồ sơ Năng lực | Phạm Gia Triết</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <style>
     :root {
-      --primary: #0056b3;
-      --bg: #f4f6f9;
-      --text: #212529;
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --navy: #0f172a;
+      --bg: #f8fafc;
       --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-sub: #475569;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    .container { max-width: 850px; margin: 40px auto; padding: 0 20px; }
-    header { background: var(--card-bg); padding: 36px; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-align: center; margin-bottom: 24px; }
-    header h1 { font-size: 2rem; color: var(--primary); margin-bottom: 6px; }
-    header p.subtitle { font-size: 1.05rem; color: #555; margin-bottom: 12px; }
-    section { background: var(--card-bg); padding: 28px; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 24px; }
-    h2 { font-size: 1.3rem; color: var(--primary); border-bottom: 2px solid #e9ecef; padding-bottom: 8px; margin-bottom: 18px; }
-    .item { margin-bottom: 16px; }
-    .item-title { font-weight: 600; font-size: 1.05rem; }
-    .item-meta { font-size: 0.88rem; color: #6c757d; margin-bottom: 4px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
-    .tags li { background: #e7f1ff; color: var(--primary); padding: 5px 12px; border-radius: 16px; font-size: 0.88rem; font-weight: 500; }
-    footer { text-align: center; color: #888; font-size: 0.85rem; padding: 20px 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER & HERO */
+    .hero-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .avatar-wrapper img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+    }
+
+    .hero-info h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+
+    .hero-info .tagline {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+    }
+
+    .hero-info .bio {
+      color: var(--text-sub);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+      max-width: 680px;
+    }
+
+    .meta-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 9999px;
+    }
+
+    /* GRID LAYOUT */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      border-left: 2px solid #e2e8f0;
+      margin-left: 10px;
+      padding-left: 20px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -27px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      background: var(--card-bg);
+      border: 3px solid var(--primary);
+      border-radius: 50%;
+    }
+
+    .timeline-item h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .timeline-item .institution {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 2px;
+    }
+
+    .timeline-item .period {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .timeline-item p {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+    }
+
+    /* SKILL TAGS */
+    .skill-category {
+      margin-bottom: 18px;
+    }
+
+    .skill-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-category-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .skill-list li {
+      background: #f1f5f9;
+      color: var(--text-main);
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid var(--border);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 24px 0 40px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .meta-badges {
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
+
   <div class="container">
-    <header>
-      <h1>Phạm Gia Triết</h1>
-      <p class="subtitle">Sinh viên Luật | Cán bộ Đoàn</p>
-      <p>Khu vực: TP. Hồ Chí Minh</p>
+    
+    <!-- Hero Card -->
+    <header class="hero-card">
+      <div class="avatar-wrapper">
+        <!-- Thay avatar.jpg bằng tên tệp ảnh tải lên GitHub -->
+        <img src="avatar.jpg" alt="Phạm Gia Triết" onerror="this.src='https://ui-avatars.com/api/?name=Gia+Triet&background=0284c7&color=fff&size=200'">
+      </div>
+      <div class="hero-info">
+        <h1>Phạm Gia Triết</h1>
+        <div class="tagline">Sinh viên chuyên ngành Luật học</div>
+        <p class="bio">
+          Sinh viên định hướng nghiên cứu và ứng dụng pháp luật vào thực tiễn.
+        </p>
+        <div class="meta-badges">
+          <span class="badge">📍 TP. Hồ Chí Minh</span>
+          <span class="badge">⚖️ Khoa học Pháp lý</span>
+          <span class="badge">🎯 All will be done</span>
+        </div>
+      </div>
     </header>
 
-    <section>
-      <h2>Giới thiệu</h2>
-      <p>Hồ sơ lưu trữ quá trình học tập, nghiên cứu học thuật và công tác phong trào thanh niên.</p>
-    </section>
+    <!-- Hàng 1: Học tập & Kinh nghiệm -->
+    <div class="grid-2">
+      <!-- Lịch sử học tập -->
+      <section class="card">
+        <h2 class="section-title">Lịch sử Học tập</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+               <h4>Chương trình đào tạo Cử nhân Kiến trúc</h4>
+            <div class="institution">Trường Đại học Bách khoa, Đại học quốc gia Thành phố Hồ Chí Minh</div>
+            <div class="period">2023 – 2024</div>
+            <p>Trọng tâm: nghiên cứu và thiết kế ứng dụng kiến trúc xây dựng dân dụng và công nghiệp, lý luận và lịch sử kiến trúc.</p>
+            <h4>Chương trình đào tạo Cử nhân Luật học</h4>
+            <div class="institution">Học viện Cán bộ TP. Hồ Chí Minh</div>
+            <div class="period">2024 – Hiện tại</div>
+            <p>Trọng tâm: nghiên cứu và ứng dụng khoa học pháp lý, luật học nói chung, trọng tâm vào Luật Dân sự và thế mạnh về Luật Kinh tế.</p>
+          </div>
 
-    <section>
-      <h2>Học vấn & Công tác</h2>
-      <div class="item">
-        <div class="item-title">Chuyên ngành Luật học</div>
-        <div class="item-meta">TP. Hồ Chí Minh</div>
-      </div>
-      <div class="item">
-        <div class="item-title">Hoạt động Đoàn - Hội</div>
-        <div class="item-meta">Bí thư Chi đoàn | Cán bộ Đoàn</div>
-      </div>
-    </section>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h4>Giai đoạn Kỹ thuật & Kiến trúc</h4>
+            <div class="institution">Đại học Bách Khoa (ĐHQG TP.HCM)</div>
+            <div class="period">Trước 2024</div>
+            <p>Rèn luyện tư duy logic, cấu trúc hệ thống và khả năng đọc hiểu bản vẽ, cấu trúc kỹ thuật.</p>
+          </div>
+        </div>
+      </section>
 
-    <section>
-      <h2>Kỹ năng & Chứng chỉ</h2>
-      <ul class="tags">
-        <li>Nghiên cứu pháp lý</li>
-        <li>MOS Office</li>
-        <li>Kỹ năng tổ chức phong trào</li>
-        <li>Tiếng Anh</li>
-      </ul>
+      <!-- Kinh nghiệm thực tế -->
+      <section class="card">
+        <h2 class="section-title">Kinh nghiệm & Trách nhiệm</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h4>Bí thư Chi đoàn </h4>
+            <div class="institution">Đoàn Thanh niên Cộng sản Hồ Chí Minh</div>
+            <div class="period">Nhiệm kỳ công tác 2024-2025 và 2025-2026</div>
+            <p>Quản trị cơ sở dữ liệu đoàn viên, xây dựng báo cáo, chỉ đạo và triển khai các chiến dịch tình nguyện và tuyên truyền pháp luật.</p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h4>Điều hành & MC Sự kiện</h4>
+            <div class="institution">Công tác Phong trào Cơ sở</div>
+            <div class="period">2024 – Hiện tại</div>
+            <p>Chủ trì, dẫn dắt các sự kiện quy mô cơ sở, tổ chức sinh hoạt tập thể và diễn đàn thanh niên.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Hàng 2: Kiến thức & Kỹ năng -->
+    <div class="grid-2">
+      <!-- Kiến thức chuyên môn -->
+      <section class="card">
+        <h2 class="section-title">Kiến thức Học thuật</h2>
+        
+        <div class="skill-category">
+          <div class="skill-category-name">Pháp lý & Tố tụng</div>
+          <ul class="skill-list">
+            <li>Khoa học Pháp lý</li>
+            <li>Chứng cứ điện tử</li>
+            <li>Tố tụng Dân sự & Hình sự</li>
+            <li>Luật Đất đai</li>
+            <li>Luật Chính quyền địa phương</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-name">Kinh tế & Khoa học ứng dụng</div>
+          <ul class="skill-list">
+            <li>Tài chính & Đầu tư</li>
+            <li>Thị trường chứng khoán</li>
+            <li>Quản trị dữ liệu số</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Kỹ năng & Chứng chỉ -->
+      <section class="card">
+        <h2 class="section-title">Kỹ năng & Chứng chỉ</h2>
+
+        <div class="skill-category">
+          <div class="skill-category-name">Tin học & Công cụ Văn phòng</div>
+          <ul class="skill-list">
+            <li>MOS Word Specialist (900+)</li>
+            <li>MOS Excel Specialist (900+)</li>
+            <li>MOS PowerPoint (900+)</li>
+            <li>Soạn thảo văn bản pháp quy</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-name">Ngoại ngữ & Kỹ năng mềm</div>
+          <ul class="skill-list">
+            <li>Tiếng Anh (Định hướng B1/B2)</li>
+            <li>Thuyết trình & Điều hành cuộc họp</li>
+            <li>Tổ chức phong trào tập thể</li>
+            <li>Tư duy kỷ luật & Kiểm soát rủi ro</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <!-- Dự án & Đề tài nghiên cứu -->
+    <section class="card" style="margin-bottom: 28px;">
+      <h2 class="section-title">Nghiên cứu & Hoạt động Tiêu biểu</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h4>Đề tài Nghiên cứu Khoa học</h4>
+          <div class="institution">Pháp luật về chứng cứ điện tử trong tố tụng dân sự</div>
+          <p>Phân tích khuôn khổ pháp luật hiện hành và đề xuất giải pháp thu thập, bảo quản, đánh giá dữ liệu điện tử trong tranh chấp dân sự.</p>
+        </div>
+      </div>
     </section>
 
     <footer>
-      &copy; 2026 Phạm Gia Triết. Vận hành bởi GitHub Pages.
+      &copy; 2026 Phạm Gia Triết. Hồ sơ cá nhân lưu trữ trên GitHub Pages.
     </footer>
+
   </div>
+
 </body>
 </html>
