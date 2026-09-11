@@ -354,6 +354,7 @@
     }
 
     /* RESPONSIVE TRÊN ĐIỆN THOẠI */
+    /* RESPONSIVE TRÊN ĐIỆN THOẠI: 5 MỤC NẰM CHUẨN TRÊN 1 HÀNG */
     @media (max-width: 768px) {
       .hero-card {
         flex-direction: column;
@@ -374,17 +375,36 @@
       .info-label {
         min-width: unset;
       }
+
+      /* Khóa cứng 5 nút trên đúng 1 hàng và cho phép vuốt ngang mượt mà */
       .footer-nav {
-        flex-wrap: wrap;
-        gap: 8px 12px;
+        display: flex;
+        flex-wrap: nowrap; /* Không cho rớt dòng */
+        justify-content: flex-start;
+        align-items: center;
+        overflow-x: auto; /* Vuốt trượt ngang tự nhiên trên mobile */
+        -webkit-overflow-scrolling: touch;
+        gap: 8px;
+        padding: 12px 6px;
+        scrollbar-width: none; /* Ẩn thanh cuộn thô trên Firefox */
       }
+
+      .footer-nav::-webkit-scrollbar {
+        display: none; /* Ẩn thanh cuộn trên Safari & Chrome mobile */
+      }
+
       .footer-nav .divider {
-        display: none;
+        display: none; /* Ẩn dấu gạch đứng để các thẻ nút tách biệt rõ ràng */
       }
+
       .footer-nav a {
+        flex-shrink: 0; /* Giữ nguyên kích thước nút, không bị bóp méo */
+        white-space: nowrap;
         background: rgba(255, 255, 255, 0.7);
-        padding: 6px 12px;
-        border-radius: 6px;
+        padding: 7px 12px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 600;
       }
     }
   </style>
