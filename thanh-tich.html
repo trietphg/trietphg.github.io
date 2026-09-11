@@ -3,20 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mục Chi Tiết | Phạm Gia Triết</title>
+  <title>Thành tích và khen thưởng | Triet's Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { --primary: #0284c7; --navy: #0f172a; --bg: #f8fafc; --card-bg: #ffffff; --text: #1e293b; --text-sub: #64748b; --border: #e2e8f0; --shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+    :root { 
+      --primary: #0284c7; 
+      --primary-dark: #0369a1; 
+      --navy: #0f172a; 
+      --bg: #f8fafc; 
+      --card-bg: #ffffff; 
+      --text: #1e293b; 
+      --text-sub: #64748b; 
+      --border: #e2e8f0; 
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.05); 
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    nav { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    .nav-container { max-width: 1040px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; }
-    .nav-brand { font-weight: 800; color: var(--navy); text-decoration: none; font-size: 1.15rem; }
-    .nav-links { display: flex; gap: 20px; list-style: none; }
-    .nav-links a { text-decoration: none; color: var(--text-sub); font-weight: 600; font-size: 0.95rem; padding: 6px 12px; border-radius: 6px; }
-    .nav-links a:hover, .nav-links a.active { color: var(--primary); background: #e0f2fe; }
+    
+    /* NAVBAR ĐÃ CÂN CHUẨN ĐỒNG HÀNG */
+    nav { 
+      background: #fff; 
+      border-bottom: 1px solid var(--border); 
+      position: sticky; 
+      top: 0; 
+      z-index: 100; 
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .nav-container { 
+      max-width: 1040px; 
+      margin: 0 auto; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      padding: 12px 24px; 
+      gap: 16px;
+    }
+    .nav-brand { 
+      font-weight: 800; 
+      color: var(--navy); 
+      text-decoration: none; 
+      font-size: 1.15rem; 
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .nav-links { 
+      display: flex; 
+      align-items: center;
+      gap: 6px; 
+      list-style: none; 
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li {
+      display: flex;
+      align-items: center;
+    }
+    .nav-links a { 
+      text-decoration: none; 
+      color: var(--text-sub); 
+      font-weight: 600; 
+      font-size: 0.88rem; 
+      padding: 8px 12px; 
+      border-radius: 8px; 
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      line-height: 1;
+    }
+    .nav-links a:hover { 
+      color: var(--primary); 
+      background: #f0f9ff; 
+    }
+    .nav-links a.active { 
+      color: var(--primary); 
+      background: #e0f2fe; 
+      font-weight: 700;
+    }
+    @media (max-width: 900px) {
+      .nav-links {
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+    }
+
     .container { max-width: 1040px; margin: 40px auto; padding: 0 24px; }
     .card { background: var(--card-bg); border-radius: 16px; padding: 32px; border: 1px solid var(--border); box-shadow: var(--shadow); }
     footer { text-align: center; color: var(--text-sub); font-size: 0.85rem; padding: 30px 0; }
@@ -24,23 +97,23 @@
 </head>
 <body>
 
- <nav>
-  <div class="nav-container">
-    <a href="index.html" class="nav-brand">Triet's Portfolio</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Thông tin chung</a></li>
-      <li><a href="hoc-tap.html">Quá trình học tập và nghiên cứu</a></li>
-      <li><a href="van-bang.html">Văn bằng và chứng chỉ</a></li>
-      <li><a href="kinh-nghiem.html">Kinh nghiệm làm việc</a></li>
-      <li><a href="thanh-tich.html" class="active">Thành tích và khen thưởng</a></li>
-    </ul>
-  </div>
-</nav>
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">Triet's Portfolio</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Thông tin chung</a></li>
+        <li><a href="hoc-tap.html" class="active">Quá trình học tập và nghiên cứu</a></li>
+        <li><a href="van-bang.html">Văn bằng và chứng chỉ</a></li>
+        <li><a href="kinh-nghiem.html">Kinh nghiệm làm việc</a></li>
+        <li><a href="thanh-tich.html">Thành tích và khen thưởng</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <div class="container">
     <div class="card">
-      <h2>Khu vực chờ nội dung thiết kế</h2>
-      <p>Trang này đã sẵn sàng để lắp code giao diện chi tiết.</p>
+      <h2>Thành tích và khen thưởng</h2>
+      <p>Khu vực chờ lắp nội dung chi tiết theo bản vẽ.</p>
     </div>
   </div>
 
