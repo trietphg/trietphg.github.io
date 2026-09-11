@@ -4,7 +4,7 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Triết PhG | Portfolio</title>
+  <title>Thông tin chung | Triet's Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,28 +13,37 @@
       --primary: #0284c7;
       --primary-dark: #0369a1;
       --navy: #0f172a;
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
+      --page-bg: #CDE7F4;
       --text: #1e293b;
-      --text-sub: #64748b;
-      --border: #e2e8f0;
-      --shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      --text-sub: #475569;
+      --glass-bg: rgba(255, 255, 255, 0.65);
+      --glass-border: rgba(255, 255, 255, 0.8);
+      --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    
+    body { 
+      font-family: 'Plus Jakarta Sans', sans-serif; 
+      background-color: var(--page-bg); 
+      color: var(--text); 
+      line-height: 1.6; 
+      min-height: 100vh;
+    }
+
     /* NAVBAR CHUẨN KÉP */
     nav { 
-      background: #ffffff; 
-      border-bottom: 1px solid var(--border); 
+      background: rgba(255, 255, 255, 0.85); 
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5); 
       position: sticky; 
       top: 0; 
       z-index: 1000; 
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04); 
     }
 
     .nav-container { 
-      max-width: 1100px; 
+      max-width: 1040px; 
       margin: 0 auto; 
       display: flex; 
       justify-content: space-between; 
@@ -52,7 +61,6 @@
       flex-shrink: 0;
     }
 
-    /* Menu ngang trên máy tính */
     .nav-links-desktop { 
       display: flex; 
       align-items: center; 
@@ -78,8 +86,8 @@
       line-height: 1; 
     }
 
-    .nav-links-desktop a:hover { color: var(--primary); background: #f0f9ff; }
-    .nav-links-desktop a.active { color: var(--primary); background: #e0f2fe; font-weight: 700; }
+    .nav-links-desktop a:hover { color: var(--primary); background: rgba(2, 132, 199, 0.08); }
+    .nav-links-desktop a.active { color: var(--primary); background: #ffffff; font-weight: 700; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
 
     .lang-switch { 
       border: 1px solid var(--primary) !important; 
@@ -91,11 +99,10 @@
       color: #fff !important; 
     }
 
-    /* Nút Hamburger (Nút 3 gạch) */
     .nav-toggle {
       display: flex;
-      background: #f8fafc;
-      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.9);
       border-radius: 8px;
       cursor: pointer;
       padding: 8px 10px;
@@ -103,11 +110,6 @@
       justify-content: center;
       gap: 4px;
       flex-shrink: 0;
-      transition: background 0.2s;
-    }
-
-    .nav-toggle:hover {
-      background: #f1f5f9;
     }
 
     .nav-toggle span {
@@ -118,22 +120,19 @@
       border-radius: 2px;
     }
 
-    /* Hộp menu thả xổ xuống khi bấm Hamburger */
     .dropdown-menu {
       display: none;
-      background: #ffffff;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.6);
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
       animation: fadeInDrop 0.2s ease-out;
     }
 
-    .dropdown-menu.show {
-      display: block;
-    }
+    .dropdown-menu.show { display: block; }
 
     .dropdown-links {
-      max-width: 1100px;
+      max-width: 1040px;
       margin: 0 auto;
       list-style: none;
       padding: 12px 24px;
@@ -150,25 +149,20 @@
       padding: 10px 14px;
       border-radius: 8px;
       display: block;
-      transition: all 0.2s;
     }
 
     .dropdown-links a:hover {
-      background: #f0f9ff;
+      background: rgba(2, 132, 199, 0.08);
       color: var(--primary);
     }
 
     .lang-switch-drop {
       color: var(--primary) !important;
       font-weight: 700 !important;
-      background: #f8fafc;
     }
 
-    /* ĐIỀU CHỈNH RIÊNG CHO ĐIỆN THOẠI */
     @media (max-width: 992px) {
-      .nav-links-desktop {
-        display: none; /* Ẩn menu ngang trên màn hình điện thoại */
-      }
+      .nav-links-desktop { display: none; }
     }
 
     @keyframes fadeInDrop {
@@ -176,20 +170,233 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .container { max-width: 1040px; margin: 40px auto; padding: 0 24px; }
-    .card { background: var(--card-bg); border-radius: 16px; padding: 32px; border: 1px solid var(--border); box-shadow: var(--shadow); margin-bottom: 24px; }
-    h1 { color: var(--navy); margin-bottom: 12px; font-size: 1.8rem; }
-    footer { text-align: center; color: var(--text-sub); font-size: 0.85rem; padding: 30px 0; }
+    /* BỐ CỤC KHUNG KÍNH (LIQUID GLASS / GLASSMORPHISM) */
+    .container {
+      max-width: 1040px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: var(--glass-shadow);
+      position: relative;
+    }
+
+    /* KHỐI 1: HEADER PROFILE */
+    .hero-card {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .avatar-wrapper {
+      width: 170px;
+      height: 220px;
+      border-radius: 14px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.5);
+      border: 2px solid #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-info {
+      flex: 1;
+    }
+
+    .hero-info h1 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--navy);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .hero-info p {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    /* KHỐI 2: THÔNG TIN CÁ NHÂN */
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: 1px;
+      color: var(--navy);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 1rem;
+    }
+
+    .info-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .info-label {
+      font-weight: 700;
+      color: var(--navy);
+      min-width: 130px;
+    }
+
+    .info-value {
+      color: var(--text);
+    }
+
+    .info-value a {
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .info-value a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    /* KHỐI 3: PHÁP LÝ & FOOTER */
+    .disclaimer-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: 1px;
+      color: var(--navy);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .disclaimer-text {
+      font-size: 0.92rem;
+      text-align: justify;
+      color: var(--text-sub);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      padding: 0 10px;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 12px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      font-size: 0.9rem;
+    }
+
+    .footer-nav a {
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover {
+      color: var(--primary);
+    }
+
+    .footer-nav .divider {
+      color: rgba(0, 0, 0, 0.25);
+      user-select: none;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-sub);
+    }
+
+    /* RESPONSIVE TRÊN ĐIỆN THOẠI */
+    @media (max-width: 768px) {
+      .hero-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+      .avatar-wrapper {
+        width: 140px;
+        height: 180px;
+      }
+      .hero-info h1 {
+        font-size: 1.8rem;
+      }
+      .info-list li {
+        flex-direction: column;
+        gap: 2px;
+      }
+      .info-label {
+        min-width: unset;
+      }
+      .footer-nav {
+        flex-wrap: wrap;
+        gap: 8px 12px;
+      }
+      .footer-nav .divider {
+        display: none;
+      }
+      .footer-nav a {
+        background: rgba(255, 255, 255, 0.7);
+        padding: 6px 12px;
+        border-radius: 6px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Thanh điều hướng kép (Navbar + Hamburger) -->
+  <!-- NAVBAR KÉP -->
   <nav>
     <div class="nav-container">
       <a href="index.html" class="nav-brand">Triet's Portfolio</a>
 
-      <!-- Menu ngang (Hiện trên PC, ẩn trên Mobile) -->
+      <!-- Menu ngang PC -->
       <ul class="nav-links-desktop">
         <li><a href="index.html" class="active">Thông tin chung</a></li>
         <li><a href="hoc-tap.html">Quá trình học tập và nghiên cứu</a></li>
@@ -199,7 +406,7 @@
         <li><a href="en/index.html" class="lang-switch">🌐 EN</a></li>
       </ul>
 
-      <!-- Nút Hamburger (Hiện ở cả hai môi trường) -->
+      <!-- Nút Hamburger -->
       <button class="nav-toggle" id="navToggle" aria-label="Menu" title="Menu nhanh">
         <span></span>
         <span></span>
@@ -207,7 +414,7 @@
       </button>
     </div>
 
-    <!-- Hộp menu thả xổ xuống khi bấm Hamburger -->
+    <!-- Dropdown Menu khi bấm Hamburger -->
     <div class="dropdown-menu" id="dropdownMenu">
       <ul class="dropdown-links">
         <li><a href="index.html">Thông tin chung</a></li>
@@ -220,17 +427,101 @@
     </div>
   </nav>
 
-  <div class="container">
-    <div class="card">
-      <h1>Trang chủ tổng quan</h1>
-      <p>Nội dung trang chủ sẽ đóng vai trò tóm tắt hồ sơ năng lực và định hướng của cá nhân.</p>
-    </div>
-  </div>
+  <!-- THÂN TRANG: 3 KHỐI BỐ CỤC THEO BẢN VẼ -->
+  <main class="container">
 
-  <footer>&copy; 2026 Phạm Gia Triết. Được xây dựng và vận hành trên GitHub Pages.</footer>
+    <!-- KHỐI 1: CHÂN DUNG & ĐỊNH VỊ NGHỀ NGHIỆP -->
+    <section class="glass-card hero-card">
+      <div class="avatar-wrapper">
+        <!-- Đặt đúng tên file ảnh của ngươi trên GitHub vào thuộc tính src -->
+        <img src="avatar.jpg" alt="Chân dung Phạm Gia Triết" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Pham+Gia+Triet&size=300&background=0284c7&color=fff';">
+      </div>
+      <div class="hero-info">
+        <h1>PHẠM GIA TRIẾT</h1>
+        <p>Sinh viên chuyên ngành Luật</p>
+      </div>
+    </section>
 
-  <!-- Script xử lý đóng/mở Hamburger Menu -->
+    <!-- KHỐI 2: THÔNG TIN CÁ NHÂN -->
+    <section class="glass-card">
+      <h2 class="section-title">THÔNG TIN CÁ NHÂN</h2>
+      <ul class="info-list">
+        <li>
+          <span class="info-label">Portfolio:</span>
+          <span class="info-value"><a href="https://trietphg.github.io">trietphg.github.io</a></span>
+        </li>
+        <li>
+          <span class="info-label">Giới tính:</span>
+          <span class="info-value">Nam</span>
+        </li>
+        <li>
+          <span class="info-label">Tuổi tác:</span>
+          <!-- Tuổi được tính tự động từ năm sinh 2005 bằng hàm JS bên dưới -->
+          <span class="info-value" id="userAge">Đang tải...</span>
+        </li>
+        <li>
+          <span class="info-label">Nơi sinh:</span>
+          <span class="info-value">Huyện Củ Chi, Thành phố Hồ Chí Minh.</span>
+        </li>
+        <li>
+          <span class="info-label">Quốc tịch:</span>
+          <span class="info-value">Việt Nam</span>
+        </li>
+        <li>
+          <span class="info-label">Địa chỉ hiện nay:</span>
+          <span class="info-value">Phường Bình Mỹ, Thành phố Hồ Chí Minh.</span>
+        </li>
+        <li>
+          <span class="info-label">Điện thoại:</span>
+          <span class="info-value"><a href="tel:0907597444">0907 597 444</a></span>
+        </li>
+        <li>
+          <span class="info-label">Email:</span>
+          <span class="info-value"><a href="mailto:phamgiatriet@gmail.com">phamgiatriet@gmail.com</a></span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- KHỐI 3: QUY ĐỊNH BẢO VỆ DỮ LIỆU & ĐIỀU HƯỚNG CHÂN TRANG -->
+    <section class="glass-card">
+      <h2 class="disclaimer-title">TRIET'S PORTFOLIO</h2>
+      <p class="disclaimer-text">
+        Dữ liệu trên trang này và tất cả các thẻ thông tin cùng đường dẫn “trietphg.github.io” là thông tin hạn chế công khai. Cá nhân và tổ chức truy cập vào trang này phải tuân thủ quy định của pháp luật về bảo vệ dữ liệu cá nhân, không sử dụng trái phép thông tin cá nhân mà không có sự cho phép bằng văn bản của Phạm Gia Triết (là: “Tôi”, “Quản lý trang”).
+      </p>
+
+      <!-- Dãy nút điều hướng cùng 1 hàng -->
+      <div class="footer-nav">
+        <a href="index.html">Về trang chủ</a>
+        <span class="divider">|</span>
+        <a href="hoc-tap.html">Quá trình học tập và nghiên cứu</a>
+        <span class="divider">|</span>
+        <a href="van-bang.html">Văn bằng và chứng chỉ</a>
+        <span class="divider">|</span>
+        <a href="kinh-nghiem.html">Kinh nghiệm làm việc</a>
+        <span class="divider">|</span>
+        <a href="thanh-tich.html">Thành tích và khen thưởng</a>
+      </div>
+
+      <div class="copyright">
+        &copy; <span id="currentYear">2026</span> Phạm Gia Triết. Mọi quyền được bảo lưu.
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JAVASCRIPT: TÍNH TUỔI REAL-TIME & ĐIỀU KHIỂN HAMBURGER -->
   <script>
+    // 1. Logic tính tuổi real-time từ năm sinh 2005
+    function calculateRealtimeAge() {
+      const birthYear = 2005;
+      const currentYear = new Date().getFullYear();
+      const age = currentYear - birthYear;
+      document.getElementById('userAge').textContent = `${age} tuổi (Sinh năm 2005)`;
+      document.getElementById('currentYear').textContent = currentYear;
+    }
+    calculateRealtimeAge();
+
+    // 2. Logic đóng mở Hamburger Menu
     const navToggle = document.getElementById('navToggle');
     const dropdownMenu = document.getElementById('dropdownMenu');
 
