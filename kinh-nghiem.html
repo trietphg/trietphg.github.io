@@ -4,7 +4,7 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kinh nghiệm làm việc | Phạm Gia Triết</title>
+  <title>Kinh nghiệm làm việc | Triet's Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -23,72 +23,152 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
     
-    /* NAVBAR ĐÃ CÂN CHUẨN ĐỒNG HÀNG */
+    /* NAVBAR CHUẨN KÉP */
     nav { 
-      background: #fff; 
+      background: #ffffff; 
       border-bottom: 1px solid var(--border); 
       position: sticky; 
       top: 0; 
-      z-index: 100; 
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      z-index: 1000; 
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
     }
+
     .nav-container { 
-      max-width: 1040px; 
+      max-width: 1100px; 
       margin: 0 auto; 
       display: flex; 
       justify-content: space-between; 
       align-items: center; 
       padding: 12px 24px; 
-      gap: 16px;
+      gap: 16px; 
     }
+
     .nav-brand { 
       font-weight: 800; 
       color: var(--navy); 
       text-decoration: none; 
       font-size: 1.15rem; 
-      white-space: nowrap;
+      white-space: nowrap; 
       flex-shrink: 0;
     }
-    .nav-links { 
+
+    /* Menu ngang trên máy tính */
+    .nav-links-desktop { 
       display: flex; 
-      align-items: center;
+      align-items: center; 
       gap: 6px; 
       list-style: none; 
-      margin: 0;
-      padding: 0;
+      margin: 0; 
+      padding: 0; 
     }
-    .nav-links li {
-      display: flex;
-      align-items: center;
-    }
-    .nav-links a { 
+
+    .nav-links-desktop li { display: flex; align-items: center; }
+
+    .nav-links-desktop a { 
       text-decoration: none; 
       color: var(--text-sub); 
       font-weight: 600; 
       font-size: 0.88rem; 
       padding: 8px 12px; 
       border-radius: 8px; 
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
+      white-space: nowrap; 
+      display: inline-flex; 
+      align-items: center; 
+      transition: all 0.2s ease; 
+      line-height: 1; 
+    }
+
+    .nav-links-desktop a:hover { color: var(--primary); background: #f0f9ff; }
+    .nav-links-desktop a.active { color: var(--primary); background: #e0f2fe; font-weight: 700; }
+
+    .lang-switch { 
+      border: 1px solid var(--primary) !important; 
+      color: var(--primary) !important; 
+      font-weight: 700 !important; 
+    }
+    .lang-switch:hover { 
+      background: var(--primary) !important; 
+      color: #fff !important; 
+    }
+
+    /* Nút Hamburger */
+    .nav-toggle {
+      display: flex;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 8px 10px;
+      flex-direction: column;
       justify-content: center;
-      transition: all 0.2s ease;
-      line-height: 1;
+      gap: 4px;
+      flex-shrink: 0;
+      transition: background 0.2s;
     }
-    .nav-links a:hover { 
-      color: var(--primary); 
-      background: #f0f9ff; 
+
+    .nav-toggle:hover { background: #f1f5f9; }
+
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background-color: var(--navy);
+      border-radius: 2px;
     }
-    .nav-links a.active { 
-      color: var(--primary); 
-      background: #e0f2fe; 
-      font-weight: 700;
+
+    /* Hộp menu thả xổ xuống khi bấm Hamburger */
+    .dropdown-menu {
+      display: none;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+      animation: fadeInDrop 0.2s ease-out;
     }
-    @media (max-width: 900px) {
-      .nav-links {
-        overflow-x: auto;
-        padding-bottom: 4px;
+
+    .dropdown-menu.show { display: block; }
+
+    .dropdown-links {
+      max-width: 1100px;
+      margin: 0 auto;
+      list-style: none;
+      padding: 12px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .dropdown-links a {
+      text-decoration: none;
+      color: var(--text-sub);
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: block;
+      transition: all 0.2s;
+    }
+
+    .dropdown-links a:hover {
+      background: #f0f9ff;
+      color: var(--primary);
+    }
+
+    .lang-switch-drop {
+      color: var(--primary) !important;
+      font-weight: 700 !important;
+      background: #f8fafc;
+    }
+
+    @media (max-width: 992px) {
+      .nav-links-desktop {
+        display: none; /* Ẩn menu ngang trên điện thoại */
       }
+    }
+
+    @keyframes fadeInDrop {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .container { max-width: 1040px; margin: 40px auto; padding: 0 24px; }
@@ -98,15 +178,38 @@
 </head>
 <body>
 
+  <!-- Thanh điều hướng kép (Navbar + Hamburger) -->
   <nav>
     <div class="nav-container">
       <a href="index.html" class="nav-brand">Triet's Portfolio</a>
-      <ul class="nav-links">
+
+      <!-- Menu ngang cho Desktop -->
+      <ul class="nav-links-desktop">
         <li><a href="index.html">Thông tin chung</a></li>
         <li><a href="hoc-tap.html">Quá trình học tập và nghiên cứu</a></li>
         <li><a href="van-bang.html">Văn bằng và chứng chỉ</a></li>
         <li><a href="kinh-nghiem.html" class="active">Kinh nghiệm làm việc</a></li>
         <li><a href="thanh-tich.html">Thành tích và khen thưởng</a></li>
+        <li><a href="en/index.html" class="lang-switch">🌐 EN</a></li>
+      </ul>
+
+      <!-- Nút Hamburger -->
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" title="Menu nhanh">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Hộp xổ xuống khi bấm Hamburger -->
+    <div class="dropdown-menu" id="dropdownMenu">
+      <ul class="dropdown-links">
+        <li><a href="index.html">Thông tin chung</a></li>
+        <li><a href="hoc-tap.html">Quá trình học tập và nghiên cứu</a></li>
+        <li><a href="van-bang.html">Văn bằng và chứng chỉ</a></li>
+        <li><a href="kinh-nghiem.html">Kinh nghiệm làm việc</a></li>
+        <li><a href="thanh-tich.html">Thành tích và khen thưởng</a></li>
+        <li><a href="en/index.html" class="lang-switch-drop">🌐 Chuyển sang English</a></li>
       </ul>
     </div>
   </nav>
@@ -119,5 +222,21 @@
   </div>
 
   <footer>&copy; 2026 Phạm Gia Triết. Vận hành trên GitHub Pages.</footer>
+
+  <!-- Script đóng mở Hamburger Menu -->
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    navToggle.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!navToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.remove('show');
+      }
+    });
+  </script>
 </body>
 </html>
