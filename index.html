@@ -4,7 +4,7 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thông tin chung | Triet's Portfolio</title>
+  <title>Triet Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -387,6 +387,48 @@
         border-radius: 6px;
       }
     }
+    /* NÚT TRỞ VỀ ĐẦU TRANG (BACK TO TOP) */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      color: var(--primary-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      background: var(--primary);
+      color: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.3);
+    }
   </style>
 </head>
 <body>
@@ -394,7 +436,7 @@
   <!-- NAVBAR KÉP -->
   <nav>
     <div class="nav-container">
-      <a href="index.html" class="nav-brand">Triet's Portfolio</a>
+      <a href="index.html" class="nav-brand">Triet Portfolio</a>
 
       <!-- Menu ngang PC -->
       <ul class="nav-links-desktop">
@@ -447,21 +489,29 @@
       <h2 class="section-title">THÔNG TIN CÁ NHÂN</h2>
       <ul class="info-list">
         <li>
-          <span class="info-label">Portfolio:</span>
-          <span class="info-value"><a href="https://trietphg.github.io">trietphg.github.io</a></span>
+          <span class="info-label">Họ và tên:</span>
+          <span class="info-value">Phạm Gia Triết</span>
         </li>
         <li>
           <span class="info-label">Giới tính:</span>
           <span class="info-value">Nam</span>
         </li>
+         <li>
+          <span class="info-label">Quốc tịch:</span>
+          <span class="info-value">Việt Nam</span>
+        </li>
+        <li>
+          <span class="info-label">Dân tộc:</span>
+          <span class="info-value">Kinh</span>
+        </li>
+        <li>
+          <span class="info-label">Tôn giáo:</span>
+          <span class="info-value">Không</span>
+        </li>
         <li>
           <span class="info-label">Tuổi tác:</span>
           <!-- Tuổi được tính tự động từ năm sinh 2005 bằng hàm JS bên dưới -->
           <span class="info-value" id="userAge">Đang tải...</span>
-        </li>
-        <li>
-          <span class="info-label">Quốc tịch:</span>
-          <span class="info-value">Việt Nam</span>
         </li>
         <li>
           <span class="info-label">Nơi sinh:</span>
@@ -478,6 +528,10 @@
         <li>
           <span class="info-label">Email:</span>
           <span class="info-value"><a href="mailto:phamgiatriet@gmail.com">phamgiatriet@gmail.com</a></span>
+        </li>
+        <li>
+          <span class="info-label">Portfolio:</span>
+          <span class="info-value"><a href="https://trietphg.github.io">trietphg.github.io</a></span>
         </li>
       </ul>
     </section>
@@ -508,7 +562,12 @@
     </section>
 
   </main>
-
+  
+<!-- Nút Return Top Page -->
+  <button id="backToTop" class="back-to-top" aria-label="Lên đầu trang" title="Lên đầu trang">
+    ▲
+  </button>
+  
   <!-- JAVASCRIPT: TÍNH TUỔI REAL-TIME & ĐIỀU KHIỂN HAMBURGER -->
   <script>
     // 1. Logic tính tuổi real-time từ năm sinh 2005
@@ -533,6 +592,24 @@
       if (!navToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
         dropdownMenu.classList.remove('show');
       }
+    });
+
+    // Logic nút Back to Top
+    const backToTopBtn = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 250) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
   </script>
 </body>
