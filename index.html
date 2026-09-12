@@ -9,32 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-
-    
-/* KHUNG CẢNH BÁO THỬ NGHIỆM */
-    .banner-warning {
-      background: rgba(254, 226, 226, 0.7);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 2px dashed #ef4444;
-      border-radius: 16px;
-      padding: 16px 24px;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(239, 68, 68, 0.15);
-    }
-
-    .banner-warning p {
-      color: #dc2626;
-      font-size: 1.15rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin: 0;
-    }
-
-
-
-    
     :root {
       --primary: #0284c7;
       --primary-dark: #0369a1;
@@ -54,6 +28,27 @@
       color: var(--text); 
       line-height: 1.6; 
       min-height: 100vh;
+    }
+
+    /* KHUNG CẢNH BÁO THỬ NGHIỆM */
+    .banner-warning {
+      background: rgba(254, 226, 226, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 2px dashed #ef4444;
+      border-radius: 16px;
+      padding: 16px 24px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(239, 68, 68, 0.12);
+    }
+
+    .banner-warning p {
+      color: #dc2626;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 0;
     }
 
     /* NAVBAR CHUẨN KÉP */
@@ -196,14 +191,14 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* BỐ CỤC KHUNG KÍNH (LIQUID GLASS / GLASSMORPHISM) */
+    /* BỐ CỤC KHUNG KÍNH (LIQUID GLASS) */
     .container {
       max-width: 1040px;
-      margin: 40px auto;
+      margin: 36px auto;
       padding: 0 20px;
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 24px;
     }
 
     .glass-card {
@@ -212,7 +207,7 @@
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--glass-border);
       border-radius: 20px;
-      padding: 36px;
+      padding: 32px;
       box-shadow: var(--glass-shadow);
       position: relative;
     }
@@ -221,12 +216,12 @@
     .hero-card {
       display: flex;
       align-items: center;
-      gap: 40px;
+      gap: 36px;
     }
 
     .avatar-wrapper {
-      width: 170px;
-      height: 220px;
+      width: 160px;
+      height: 210px;
       border-radius: 14px;
       overflow: hidden;
       flex-shrink: 0;
@@ -247,7 +242,7 @@
     }
 
     .hero-info h1 {
-      font-size: 2.3rem;
+      font-size: 2.2rem;
       font-weight: 800;
       letter-spacing: 0.5px;
       color: var(--navy);
@@ -256,7 +251,7 @@
     }
 
     .hero-info p {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 600;
       color: var(--primary-dark);
     }
@@ -297,13 +292,14 @@
     .info-list li {
       display: flex;
       align-items: baseline;
-      gap: 8px;
+      gap: 12px;
     }
 
     .info-label {
       font-weight: 700;
       color: var(--navy);
-      min-width: 130px;
+      min-width: 140px;
+      flex-shrink: 0;
     }
 
     .info-value {
@@ -339,15 +335,15 @@
       color: var(--text-sub);
       line-height: 1.7;
       margin-bottom: 24px;
-      padding: 0 10px;
+      padding: 0 8px;
     }
 
     .footer-nav {
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-wrap: nowrap;
-      gap: 12px;
+      flex-wrap: wrap;
+      gap: 10px 14px;
       padding: 16px 0;
       border-top: 1px solid rgba(0, 0, 0, 0.08);
       border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -379,6 +375,49 @@
       color: var(--text-sub);
     }
 
+    /* NÚT BACK TO TOP */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      color: var(--primary-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      background: var(--primary);
+      color: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.3);
+    }
+
     /* RESPONSIVE TRÊN ĐIỆN THOẠI */
     @media (max-width: 768px) {
       .hero-card {
@@ -400,10 +439,6 @@
       .info-label {
         min-width: unset;
       }
-      .footer-nav {
-        flex-wrap: wrap;
-        gap: 8px 12px;
-      }
       .footer-nav .divider {
         display: none;
       }
@@ -412,48 +447,6 @@
         padding: 6px 12px;
         border-radius: 6px;
       }
-    }
-    /* NÚT TRỞ VỀ ĐẦU TRANG (BACK TO TOP) */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    .back-to-top {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-      color: var(--primary-dark);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(12px);
-      transition: all 0.3s ease;
-      z-index: 999;
-    }
-
-    .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .back-to-top:hover {
-      background: var(--primary);
-      color: #ffffff;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.3);
     }
   </style>
 </head>
@@ -495,25 +488,17 @@
     </div>
   </nav>
 
-  <!-- THÂN TRANG: 3 KHỐI BỐ CỤC THEO BẢN VẼ -->
+  <!-- THÂN TRANG: 3 KHỐI BỐ CỤC CHUẨN XÁC -->
   <main class="container">
 
-<main class="container">
-
-    <!-- KHỐI CẢNH BÁO BỔ SUNG -->
+    <!-- KHỐI CẢNH BÁO -->
     <div class="banner-warning">
       <p>[TRANG THỬ NGHIỆM, CHƯA ĐƯỢC PHÁT HÀNH]</p>
     </div>
 
     <!-- KHỐI 1: CHÂN DUNG & ĐỊNH VỊ NGHỀ NGHIỆP -->
     <section class="glass-card hero-card">
-      ...
-    
-
-    <!-- KHỐI 1: CHÂN DUNG & ĐỊNH VỊ NGHỀ NGHIỆP -->
-    <section class="glass-card hero-card">
       <div class="avatar-wrapper">
-        <!-- Đặt đúng tên file ảnh của ngươi trên GitHub vào thuộc tính src -->
         <img src="avatar.jpg" alt="Chân dung Phạm Gia Triết" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Pham+Gia+Triet&size=300&background=0284c7&color=fff';">
       </div>
       <div class="hero-info">
@@ -534,7 +519,7 @@
           <span class="info-label">Giới tính:</span>
           <span class="info-value">Nam</span>
         </li>
-         <li>
+        <li>
           <span class="info-label">Quốc tịch:</span>
           <span class="info-value">Việt Nam</span>
         </li>
@@ -548,7 +533,6 @@
         </li>
         <li>
           <span class="info-label">Tuổi tác:</span>
-          <!-- Tuổi được tính tự động từ năm sinh 2005 bằng hàm JS bên dưới -->
           <span class="info-value" id="userAge">Đang tải...</span>
         </li>
         <li>
@@ -581,7 +565,6 @@
         Dữ liệu trên trang này và tất cả các thẻ thông tin cùng đường dẫn “trietphg.github.io” là thông tin hạn chế công khai. Cá nhân và tổ chức truy cập vào trang này phải tuân thủ quy định của pháp luật về bảo vệ dữ liệu cá nhân, không sử dụng trái phép thông tin cá nhân mà không có sự cho phép bằng văn bản của Phạm Gia Triết (là: “Tôi”, “Quản lý trang”).
       </p>
 
-      <!-- Dãy nút điều hướng cùng 1 hàng -->
       <div class="footer-nav">
         <a href="index.html">Về trang chủ</a>
         <span class="divider">|</span>
@@ -600,15 +583,15 @@
     </section>
 
   </main>
-  
-<!-- Nút Return Top Page -->
+
+  <!-- NÚT RETURN TOP PAGE -->
   <button id="backToTop" class="back-to-top" aria-label="Lên đầu trang" title="Lên đầu trang">
     ▲
   </button>
-  
-  <!-- JAVASCRIPT: TÍNH TUỔI REAL-TIME & ĐIỀU KHIỂN HAMBURGER -->
+
+  <!-- JAVASCRIPT: LOGIC TUỔI, MENU VÀ NÚT TOP -->
   <script>
-    // 1. Logic tính tuổi real-time từ năm sinh 2005
+    // 1. Tính tuổi theo năm sinh 2005
     function calculateRealtimeAge() {
       const birthYear = 2005;
       const currentYear = new Date().getFullYear();
@@ -632,7 +615,7 @@
       }
     });
 
-    // Logic nút Back to Top
+    // 3. Logic nút Back to Top
     const backToTopBtn = document.getElementById('backToTop');
 
     window.addEventListener('scroll', () => {
